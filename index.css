@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital@1&family=Montserrat:ital,wght@1,500&family=Roboto+Slab&family=Sofia+Sans+Condensed:wght@500&display=swap');
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: antiquewhite;
+  color: #222;
+  position: relative;
+  min-height: 100vh;
+}
+
+.title {
+  /*  font-family: 'Sofia Sans Condensed', sans-serif; */
+  /* font-family: 'Montserrat', sans-serif; */
+  /* font-family: 'Roboto Slab', serif; */
+  font-family: 'Bitter', serif;
+  font-size: 2.3rem;
+}
+
+.btn-open {
+  bottom: 8rem;
+}
+
+.to-do:first-child {
+  margin-top: 25px;
+}
+
+.to-do {
+  height: 4rem;
+  display: flex;
+  align-items: center;
+}
+
+.to-do__check {
+  margin-right: 0.5rem;
+  font-size: 2rem;
+}
+
+.to-do__text {
+  margin: 0 0.2rem;
+  font-size: 1rem;
+  font-family: 'Roboto Slab', serif;
+}
+
+.modal-btn {
+  padding: 0.5rem 1.2rem;
+  border-radius: 10px;
+  background-color: #222;
+  color: #eee;
+  margin: 20px;
+}
+
+.modal-text:focus {
+  border: 1px #f00;
+}
+
+.modal {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4rem;
+  /* width: 450px; */
+  /* padding: 1.3rem; */
+  min-height: 250px;
+  min-width: 250px;
+  position: absolute;
+  top: 20%;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+}
+
+.modal .flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal input {
+  padding: 0.7rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+
+.modal p {
+  font-size: 0.9rem;
+  color: #777;
+  margin: 0.4rem 0 0.2rem;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.4rem;
+  font-weight: 700;
+  background-color: black;
+  color: white;
+  border-radius: 17px;
+  text-align: center;
+  font-size: 1em;
+}
+
+.btn-close {
+  transform: translate(10px, -40px);
+  padding: 0.5rem 0.7rem;
+  justify-content: end;
+  background: #eee;
+  border-radius: 50%;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 1;
+}
+
+.modal {
+  z-index: 2;
+}
+
+.hidden {
+  display: none;
+}
