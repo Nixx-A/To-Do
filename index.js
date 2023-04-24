@@ -6,6 +6,8 @@ const modal = document.querySelector('.modal')
 const overlay = document.querySelector('.overlay')
 const openModalBtn = document.querySelector('.btn-open')
 const closeModalBtn = document.querySelector('.btn-close')
+const clearLocalStorage = document.querySelector('.clear')
+
 
 const openModal = function () {
   modal.classList.remove('hidden')
@@ -20,10 +22,8 @@ const closeModal = function () {
 openModalBtn.addEventListener('click', openModal)
 closeModalBtn.addEventListener('click', closeModal)
 
-//const form  = getId('form');
 const container = getId('container')
 container.addEventListener('click', deleteToDo)
-//text = getId("text").value
 
 form.addEventListener('submit', event => {
   event.preventDefault()
@@ -39,34 +39,75 @@ function createIdRandom() {
   return Date.now()
 }
 
+function callItemsLocalStorage(collection) {
+  console.log(collection)
+  let id
+  collection.forEach(item => {
+    id = localStorage.getItem(item)
+    painToDo(id)
+  })
+}
+
+let collectionRandomsId = []
+
 function painToDo(text) {
   randomId = createIdRandom()
- /*  console.log(randomId) */
+  /*  collectionRandomsId += collectionRandomsId.push(`${randomId}`) */
+  /*  console.log(randomId) */
+  localStorage.setItem(`${randomId}`, `${text}`)
+  /*  callItemsLocalStorage(collectionRandomsId) */
   let contentToDo = document.createElement('div')
   contentToDo.setAttribute('class', 'to-do')
   contentToDo.innerHTML = `
   <input class="to-do__check" type="checkbox">
-  <p class="to-do__text checked">${text}</p>
-  <button class="to-do__delete modal-btn" id="${randomId}" data-id="${randomId}" >delete</button>
+  <p class="to-do__text">${text}</p>
+  <button class="to-do__delete btn" id="${randomId}" data-id="${randomId}" >delete</button>
   </tr>`
   container.appendChild(contentToDo)
 }
 
-/* const deleteBtn = document.querySelector('.to-do__delete')
-deleteBtn.addEventListener('click', deleteToDo) */
-/* const deleteBtn = document.querySelectorAll('.to-do__delete')
-deleteBtn.forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    console.log(e);
-  })
-})
- */
+function paintLocalStorage () {
+  
+  for (let i = 0; i < localStorage.length; i++) {
+    let key = localStorage.key(i)
+    let value = localStorage.getItem(key)
+    let contentToDo = document.createElement('div')
+    contentToDo.setAttribute('class', 'to-do')
+    contentToDo.innerHTML = `
+    <input class="to-do__check" type="checkbox">
+    <p class="to-do__text">${value}</p>
+    <button class="to-do__delete btn " id="${key}" data-id="${key}" >delete</button>
+    </tr>`
+    container.appendChild(contentToDo)
+  }
+}
 
+paintLocalStorage()
+
+/* clearLocalStorage.addEventListener('click', () => {
+ localStorage.clear()
+}) */
 
 function deleteToDo(e) {
-  console.log(e.target.dataset.id);
+  const box = e.target.nextSibling
   const id = e.target.dataset.id
-  if (id) {
+  localStorage.removeItem(id)
+  if (box === 'false') {
+    e.target.nextSibling.classList.add('checked')
+    console.log('se esta haciendo')
+    box.classList.add('checked')
+    checkedToDo(e.target)
+  } else if (id) {
     e.target.parentElement.remove()
+  }
+}
+
+function checkedToDo(e) {
+  const checkText = e.nextSibling.dataset.text
+  console.log(checkText)
+  if (checkText.includes('checked')) {
+    checkText.classList.remove('checked')
+  } else {
+    checkText.classList.add('checked')
   }
 }

@@ -50,7 +50,40 @@ body {
   font-family: 'Roboto Slab', serif;
 }
 
+
+.modal {
+  width: 55vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  /* width: 450px; */
+  /* padding: 1.3rem; */
+  min-height: 150px;
+  min-width: 250px;
+  position: absolute;
+  height: max-content;
+  top: 20%;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  justify-content: center;
+}
+
+.modal input {
+  padding: 0.7rem 1rem;
+  margin-bottom: 60px;
+  border: 1px solid #bbbbbb;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+
 .modal-btn {
+  position: absolute;
+  left: 70px;
+  bottom: 0;
+  right: 70px;
+  top: 80px;
   padding: 0.5rem 1.2rem;
   border-radius: 10px;
   background-color: #222;
@@ -62,41 +95,18 @@ body {
   border: 1px #f00;
 }
 
-.modal {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.4rem;
-  /* width: 450px; */
-  /* padding: 1.3rem; */
-  min-height: 250px;
-  min-width: 250px;
-  position: absolute;
-  top: 20%;
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 15px;
-}
-
-.modal .flex {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.modal input {
-  padding: 0.7rem 1rem;
-  margin-left: 20px;
-  border: 1px solid #bbbbbb;
-  border-radius: 5px;
-  font-size: 0.9em;
-}
-
 .modal p {
   font-size: 0.9rem;
   color: #777;
   margin: 0.4rem 0 0.2rem;
+}
+
+.btn-close {
+  transform: translate(90px, 5px);  
+  width: 30px;
+  padding: 0.5rem 0.5rem;
+  background: #eee;
+  border-radius: 50%;
 }
 
 button {
@@ -115,13 +125,12 @@ button {
   font-size: 1em;
 }
 
-.btn-close {
-  transform: translate(10px, -40px);
-  padding: 0.5rem 0.7rem;
-  justify-content: end;
-  background: #eee;
-  border-radius: 50%;
+.to-do__delete {
+  margin-left: 10px;
+  padding: 0.3rem .7rem;
+  font-size: 14px;
 }
+
 
 .overlay {
   position: fixed;
@@ -147,4 +156,50 @@ button {
 .checked {
   text-decoration: line-through;
   color: #777;
+}
+
+
+@media (min-width: 700px) {
+  
+  .to-do-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding: 30px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    height: auto;
+    word-break: break-all;
+    border-radius: 8px;
+    margin-top: 25px;
+    background-color: #ffffff;
+    align-items: flex-start;
+    width: 50vw;
+  }
+
+  .modal {
+    
+    width: 30%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .btn-close {
+    transform: translate(120px, 5px);  
+
+  }
+}
+
+@media (min-width: 1200px) {
+  .btn-close {
+    transform: translate(150px, 5px);  
+
+  }
+}
+
+@media (min-width: 1440px) {
+  .btn-close {
+    transform: translate(190px, 5px);  
+
+  }
 }
