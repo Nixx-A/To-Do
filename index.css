@@ -11,23 +11,30 @@ body {
 }
 
 .title {
-  /*  font-family: 'Sofia Sans Condensed', sans-serif; */
-  /* font-family: 'Montserrat', sans-serif; */
-  /* font-family: 'Roboto Slab', serif; */
   font-family: 'Bitter', serif;
   font-size: 2.3rem;
 }
 
+.to-do-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  padding: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  height: auto;
+  width: 80vw;
+  word-break: break-all;
+  border-radius: 8px;
+  margin-top: 20px;
+  background-color: #ffffff;
+}
 .btn-open {
   bottom: 8rem;
 }
-
-.to-do:first-child {
-  margin-top: 25px;
-}
-
 .to-do {
-  height: 4rem;
+  height: 3rem;
   display: flex;
   align-items: center;
 }
@@ -80,7 +87,8 @@ body {
 
 .modal input {
   padding: 0.7rem 1rem;
-  border: 1px solid #ddd;
+  margin-left: 20px;
+  border: 1px solid #bbbbbb;
   border-radius: 5px;
   font-size: 0.9em;
 }
@@ -104,7 +112,6 @@ button {
   background-color: black;
   color: white;
   border-radius: 17px;
-  text-align: center;
   font-size: 1em;
 }
 
@@ -135,4 +142,9 @@ button {
 
 .hidden {
   display: none;
+}
+
+.checked {
+  text-decoration: line-through;
+  color: #777;
 }
